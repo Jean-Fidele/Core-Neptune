@@ -1326,7 +1326,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DENIS\\.nuget\\packages\\": {}
+    "C:\\Users\\FIDELE\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1334,11 +1334,11 @@
       "projectUniqueName": "E:\\APPLICATIONS\\DOTNET\\Core-neptune\\Core-neptune.csproj",
       "projectName": "Core-neptune",
       "projectPath": "E:\\APPLICATIONS\\DOTNET\\Core-neptune\\Core-neptune.csproj",
-      "packagesPath": "C:\\Users\\DENIS\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\FIDELE\\.nuget\\packages\\",
       "outputPath": "E:\\APPLICATIONS\\DOTNET\\Core-neptune\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DENIS\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\FIDELE\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"

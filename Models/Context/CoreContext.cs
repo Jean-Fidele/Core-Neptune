@@ -16,6 +16,8 @@ namespace Core_neptune.Models.Context
             options.UseSqlite($"Data Source = MonDbSqlite.db");
         }
         
-        public DbSet<Etudiant> Etudiant {get;set;}
+        public DbSet<Personne> Personne {get;set;}
+
+        public DbSet<Hobbie> Hobbie {get;set;}
     }
 }
