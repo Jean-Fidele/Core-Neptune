@@ -30,12 +30,11 @@ namespace Core_neptune.Controllers
                 }
             }
             catch(Exception ex){
-                Console.WriteLine("Exception from create personne : " + ex.Message);
+                Console.WriteLine("Exception from list personne : " + ex.Message);
             }            
             return personnes;
         }
 
-        [Route("")]
         [HttpPost]
         public int Create([FromBody]Personne personne)
         {
@@ -72,7 +71,7 @@ namespace Core_neptune.Controllers
                 res = repos.Remove(personneId);
             }
             catch(Exception ex){
-                Console.WriteLine("Exception from create personne : " + ex.Message);
+                Console.WriteLine("Exception from delete personne : " + ex.Message);
             }       
             return res;
         }
