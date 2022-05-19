@@ -10,10 +10,10 @@ namespace Core_neptune.Metiers
     {
         public IEnumerable<Personne> FindAll();
 
-        public Personne Create(Personne eersonne);
+        public int Create(Personne personne);
 
         public int Remove(int PersonneID);
 
-        public Personne FindID(int PersonneID);
+        public int Update(Personne personne);
     }
 }

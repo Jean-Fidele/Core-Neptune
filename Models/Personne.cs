@@ -10,16 +10,22 @@ namespace Core_neptune.Models
     [Table("Personne")]
     public class Personne
     {
+        public Personne() {
+            Hobbies= new List<Hobbie>();
+        }
+
         [Key]
         [Required]
         public int Id {get;set;}
 
         [Display(Name ="Nom")]
+         [Required]
         public String Nom {get;set;}
 
         [Display(Name ="Prenom")]
-        public String Prenom {get;set;}
+        public String? Prenom {get;set;}
 
+        [Required]
         [Display(Name ="DateNaissance")]
         public DateTime DateNaissance {get;set;}
 

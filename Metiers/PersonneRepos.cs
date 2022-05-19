@@ -9,15 +9,24 @@ namespace Core_neptune.Metiers
 {
     public class PersonneRepos : IPersonneRepos
     {
-        public Personne Create(Personne personne)
+        public int Create(Personne personne)
         {
-            return personne;
+            int res = -1;
+            using (var db = new CoreContext())
+            {
+                Personne pers_to_check = db.Personne.FirstOrDefault(p => p.Id == personne.Id); //Retourne la personne si il existe ou null si non
+                if(pers_to_check == null){
+                    db.Personne.Add(personne);
+                    res = db.SaveChanges();
+                    Console.WriteLine("Prenom n existe pas encore.");
+                }
+            }
+            return res;
         }
 
         public IEnumerable<Personne> FindAll()
         {
             IEnumerable<Personne> personnes;
-
             using (var db = new CoreContext())
             {
                 personnes = db.Personne.ToList();
@@ -26,14 +35,41 @@ namespace Core_neptune.Metiers
             return personnes;
         }
 
-        public Personne FindID(int PersonneID)
-        {
-            return new Personne();
-        }
 
         public int Remove(int PersonneID)
         {
-            return 2;
+            int res = -1;
+            using (var db = new CoreContext())
+            {
+                Personne pers_to_delete = db.Personne.FirstOrDefault(p => p.Id == PersonneID); //Retourne la personne si il existe ou null si non
+                if(pers_to_delete != null){
+                    db.Personne.Remove(pers_to_delete);
+                    res = db.SaveChanges();
+                    Console.WriteLine("Prenom existe, on passe a la suppression.");
+                }
+            }
+            return res;
+        }
+
+        public int Update(Personne personne)
+        {
+            int res = -1;
+            Personne pers_to_update =null;
+
+            using (var db1 = new CoreContext())
+            {
+                pers_to_update = db1.Personne.Find(personne.Id); //Retourne la personne si il existe ou null si non
+            }
+
+            using (var db = new CoreContext())
+            {
+                if(pers_to_update != null){
+                    db.Personne.Update(personne);
+                    res = db.SaveChanges();
+                    Console.WriteLine("Prenom existe, on passe a la mise a jour.");
+                }
+            }
+            return res;
         }
     }
 }
