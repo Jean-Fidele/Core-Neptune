@@ -8,7 +8,7 @@ namespace Core_neptune.Metiers
 {
     public interface IPersonneRepos
     {
-        public IEnumerable<Personne> FindAll();
+        public Task<List<Personne>> FindAll();
 
         public int Create(Personne personne);
 

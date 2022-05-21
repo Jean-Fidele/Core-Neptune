@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Core_neptune.Metiers;
 using Core_neptune.Models;
 using Core_neptune.Models.Context;
@@ -20,17 +21,18 @@ namespace Core_neptune.Controllers
         { }
 
         [HttpGet]
-        public IEnumerable<Personne> List()
+        public async Task<ActionResult<IEnumerable<Personne>>> List()
         {
             List<Personne> personnes = null;
             try{
-                personnes = repos.FindAll().ToList();
-                foreach (Personne pers in personnes){
-                    Console.WriteLine("Nom : " + pers.Nom);
+                personnes = await repos.FindAll();
+                if(personnes == null){
+                    return NoContent();
                 }
             }
             catch(Exception ex){
                 Console.WriteLine("Exception from list personne : " + ex.Message);
+                return StatusCode(500);
             }            
             return personnes;
         }

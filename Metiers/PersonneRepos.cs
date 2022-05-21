@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using System.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using Core_neptune.Models;
 using Core_neptune.Models.Context;
@@ -11,13 +10,12 @@ namespace Core_neptune.Metiers
 {
     public class PersonneRepos : IPersonneRepos
     {
-        public IEnumerable<Personne> FindAll()
+        public Task<List<Personne>> FindAll()
         {
-            IEnumerable<Personne> personnes;
+            Task<List<Personne>> personnes = null;
             using (var db = new CoreContext())
             {
-                personnes = db.Personne.Include(x=>x.Hobbies).ToList();
-                Console.WriteLine("List OK");
+                personnes = db.Personne.Include(x=>x.Hobbies).ToListAsync();
             }
             return personnes;
         }
