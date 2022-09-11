@@ -18,7 +18,9 @@ namespace Core_neptune.Controllers
         private IPersonneRepos repos = new PersonneRepos();
 
         public PersonneController()
-        { }
+        {
+            Console.WriteLine("Debut du programme...");
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Personne>>> List()
@@ -77,6 +79,5 @@ namespace Core_neptune.Controllers
             }       
             return res;
         }
-
     }
 }
