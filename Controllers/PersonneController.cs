@@ -20,6 +20,7 @@ namespace Core_neptune.Controllers
         public PersonneController()
         {
             Console.WriteLine("Debut du programme...");
+            Console.WriteLine("Debut du programme...");
         }
 
         [HttpGet]
